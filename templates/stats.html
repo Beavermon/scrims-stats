@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#161417">
+    <meta name="description" content="Scrims Network Stats Tracker">
+    <link rel="preload" href="{{url_for('static', filename='MinecraftRegular-Bmg3.otf')}}" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <title>Scrims Network Stats Tracker</title>
+     
+</head>
+
+<body>
+    
+    <div class="wrapper">
+        <div class="box Page_title">
+            <span style="text-align:center;font-size: 120px;text-decoration-line:underline;color:#ff5757;">Scrim</span><span style="text-align:center;font-size: 120px;color:#ffffff;">Stats</span>
+        </div>
+        <div class="box search_box">
+            <form action="#" method="post"><input type="text" name="nm" placeholder="Username here" ><button><img src="../static/Magnifying.svg" height ="15px" width="40px"></img></button></form>
+        </div>
+        
+        <div class="box a">
+            <div class="icon_image"><img src="../static/Chat.svg" alt="Discord" loading="lazy" style="height:100px"></div>
+            <p style="text-align:center;font-size: 20px;"><a href="https://discord.gg/A7RskzQpnc" target="_blank">Discord</a></p>
+        </div>
+        <div class="box b">
+            <div class="icon_image"><img src="../static/Medallion.svg" alt="Leaderboards" loading="lazy" style="height:100px"></div>
+            <p style="text-align:center;font-size: 20px;"><a href="#" target="_blank">Leaderboards<br>[coming soon!]</a></p>
+        </div>
+        <div class="box c">
+            <div class="icon_image"><img src="../static/cat.png" alt="Source Code" loading="lazy" style="height:100px"></div>
+            <p style="text-align:center;font-size: 20px;"><a href="https://github.com/Beavermon/scrims-stats" target="_blank">Source Code </a></p>
+        </div>
+        
+
+    {% if User_info["user_data"] %}
+        
+        <div class="box d">
+            
+            <div class="display_stats"></div>
+            <p style="text-align:center;font-size: 18px;">1v1 Casual</p>
+            <hr>
+            {% if User_info["user_data"]["stats"]["bridge"]["casual"]["1v1"] %}
+                <p style="text-align:center;font-size: 16px;">Kills: {{User_info["user_data"]["stats"]["bridge"]["casual"]["1v1"]["kills"]}}<br>
+                Deaths: {{User_info["user_data"]["stats"]["bridge"]["casual"]["1v1"]["deaths"]}}<br>
+                Wins: {{User_info["user_data"]["stats"]["bridge"]["casual"]["1v1"]["wins"]}}<br>
+                Losses: {{User_info["user_data"]["stats"]["bridge"]["casual"]["1v1"]["losses"]}}<br>
+                Goals: {{User_info["user_data"]["stats"]["bridge"]["casual"]["1v1"]["goals"]}}<br>
+                Blocks placed: {{User_info["user_data"]["stats"]["bridge"]["casual"]["1v1"]["blocksPlaced"]}}</p>
+            {% else %}
+                <p style="text-align:center;font-size: 20px;">No Data</p>
+            
+            {% endif %}
+
+
+        </div>
+
+        <div class="box e">
+           <div class="display_stats"></div>
+            <p style="text-align:center;font-size: 20px;">Username: {{User_name}}</p>
+            <hr>
+            <p style="text-align:center;font-size: 16px;">UUID: {{User_info["user_data"]["_id"]}}<br>
+            Last Login: {{User_info["user_data"]["lastLogin"]}}<br>
+            Total Play time: {{User_info["user_data"]["playtime"]}}<br>
+            {% if User_info["user_data"]["discordId"] %}
+                Discord ID: {{User_info["user_data"]["discordId"]}}
+            {% else %}
+                Your Discord is not linked!
+            {% endif %}
+        </p>
+
+        </div>
+       
+       
+        <div class="box f">
+            <div class="display_stats"></div>
+            <p style="text-align:center;font-size: 20px;">1v1 Ranked</p>
+            <hr>
+            {% if User_info["user_data"]["stats"]["bridge"]["ranked"] %}
+                <p style="text-align:center;font-size: 16px;">Kills: {{User_info["user_data"]["stats"]["bridge"]["ranked"]["1v1"]["kills"]}}<br>
+                Deaths: {{User_info["user_data"]["stats"]["bridge"]["ranked"]["1v1"]["deaths"]}}<br>
+                Wins: {{User_info["user_data"]["stats"]["bridge"]["ranked"]["1v1"]["wins"]}}<br>
+                Losses: {{User_info["user_data"]["stats"]["bridge"]["ranked"]["1v1"]["losses"]}}<br>
+                Goals: {{User_info["user_data"]["stats"]["bridge"]["ranked"]["1v1"]["goals"]}}<br>
+                Blocks placed: {{User_info["user_data"]["stats"]["bridge"]["ranked"]["1v1"]["blocksPlaced"]}}</p>
+             
+            {% else %}
+                <p style="text-align:center;font-size: 20px;">No Data</p>
+        
+            {% endif %}
+        </div>
+        <div class="box g">
+            <div class="display_stats"></div>
+            <p style="text-align:center;font-size: 20px;">1v1 Duels</p>
+            <hr>
+            {% if User_info["user_data"]["stats"]["bridge"]["duel"] %}
+                <p style="text-align:center;font-size: 16px;">Kills: {{User_info["user_data"]["stats"]["bridge"]["duel"]["1v1"]["kills"]}}<br>
+                Deaths: {{User_info["user_data"]["stats"]["bridge"]["duel"]["1v1"]["deaths"]}}<br>
+                Wins: {{User_info["user_data"]["stats"]["bridge"]["duel"]["1v1"]["wins"]}}<br>
+                Losses: {{User_info["user_data"]["stats"]["bridge"]["duel"]["1v1"]["losses"]}}<br>
+                Goals: {{User_info["user_data"]["stats"]["bridge"]["duel"]["1v1"]["goals"]}}<br>
+                Blocks placed: {{User_info["user_data"]["stats"]["bridge"]["duel"]["1v1"]["blocksPlaced"]}}</p>
+             
+            {% else %}
+            <p style="text-align:center;font-size: 20px;">No Data</p>
+            {% endif %}
+
+        </div>
+        <div class="box h">
+            <div class="display_stats"></div>
+            <p style="text-align:center;font-size: 20px;">2v2 Duels</p>
+            <hr>
+            {% if User_info["user_data"]["stats"]["bridge"]["duel"] %}
+                <p style="text-align:center;font-size: 16px;">Kills: {{User_info["user_data"]["stats"]["bridge"]["duel"]["2v2"]["kills"]}}<br>
+                Deaths: {{User_info["user_data"]["stats"]["bridge"]["duel"]["2v2"]["deaths"]}}<br>
+                Wins: {{User_info["user_data"]["stats"]["bridge"]["duel"]["2v2"]["wins"]}}<br>
+                Losses: {{User_info["user_data"]["stats"]["bridge"]["duel"]["2v2"]["losses"]}}<br>
+                Goals: {{User_info["user_data"]["stats"]["bridge"]["duel"]["2v2"]["goals"]}}<br>
+                Blocks placed: {{User_info["user_data"]["stats"]["bridge"]["duel"]["2v2"]["blocksPlaced"]}}
+
+            {% else %}
+            <p style="text-align:center;font-size: 20px;">No Data</p>
+            {% endif %}
+        </div>
+    
+
+
+
+   {% else %}
+   <div class="box e">
+    <p style="text-align:center;font-size: 20px;">{{User_name}}</p>
+
+    </div>
+
+
+{% endif %}
+
+</body>
+
+
+</html>
