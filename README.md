@@ -5,6 +5,7 @@ A dynamic webpage made to display statistics for players of the Scrims Network.
 
 # Credits
 Beavermon - dev
+
 Radio - dev & hosting
 
 Special thanks to Glopter for making the original api!
